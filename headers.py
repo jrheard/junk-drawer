@@ -1,3 +1,9 @@
+"""
+A dinky little script which scrapes logo image URLs out of a few news sites' HTML.
+
+Extremely verbose, so's it can function as a teaching aid.
+"""
+
 from pyquery import PyQuery as pq
 import re
 import urllib2
@@ -10,6 +16,7 @@ urls = [
 ]
 
 header_re = re.compile('header|hdr|logo')
+
 
 def get_header_image_from_url(url):
 	# open the URL, and parse its HTML using PyQuery
@@ -43,6 +50,7 @@ def get_header_image_from_url(url):
 
 			# okay, we're pretty sure we found the header image, let's see what it looks like
 			webbrowser.open_new(src)
+
 
 for url in urls:
 	get_header_image_from_url(url)
