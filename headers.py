@@ -41,11 +41,11 @@ def get_header_image_from_url(url):
 		# header images are usually found at the beginning of a page's HTML
 		header_img = header_img_candidates[0]
 
-		# where's the image located?
+		# where does the image live? that is, what is its URL?
 		src = header_img.attrib.get('src')
 		if src:
 			if src[0] == '/':
-				# src is relative url (like '/images/header.png'), prepend the domain to create a full URL
+				# src is a relative url (like '/images/header.png'); prepend the domain to create a full URL
 				src = url + src
 
 			# okay, we're pretty sure we found the header image, let's see what it looks like
